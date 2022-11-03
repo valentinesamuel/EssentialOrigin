@@ -47,7 +47,7 @@ add a new slot by expanding the length of the array, starting from the empty slo
         low = 0
         high = len(self.data) - 1
         while (low < high):
-			self.data[low], self.data[high] = self.data[high], self.data[low]
+            self.data[low], self.data[high] = self.data[high], self.data[low]
             low += 1
             high -= 1
 
