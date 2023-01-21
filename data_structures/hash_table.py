@@ -30,13 +30,13 @@ class HashTable():
 
 	def keys(self):
 		keysArray = []
-		for ele in self.data:
-			if ele:
-				if len(ele) > 1:
-					for inner_ele in ele:
+		for item in self.data:
+			if item:
+				if len(item) > 1:
+					for inner_ele in item:
 						keysArray.append(inner_ele[0])
 				else:
-					keysArray.append(ele[0][0])
+					keysArray.append(item[0][0])
 		print(keysArray)
 
 	def values(self):
