@@ -20,7 +20,6 @@ class HashTable:
             self.data[hash] = [[key, value]]
         return hash
 
-    
     def get(self, item):
         key = self._hash(item)
         target = self.data[key]
@@ -30,9 +29,28 @@ class HashTable:
                     print(ele[1])
         return None
 
+    def keys(self):
+        keys = []
+        for ele in self.data:
+                if ele and len(ele) > 0:
+                    for inner_ele in ele:
+                        keys.append(inner_ele[0])
+        print(keys)
+
+    def values(self):
+        values = []
+        for ele in self.data:
+                if ele and len(ele) > 0:
+                    for inner_ele in ele:
+                        values.append(inner_ele[1])
+        print(values)
+
+
+
     
 hs = HashTable(5)
 hs.set('grapes', 100000)
 hs.set('oranges', 600)
-hs.get('grapes')
-print(hs)
+hs.set('bananas', 100)
+hs.keys()
+hs.values()
