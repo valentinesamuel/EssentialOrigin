@@ -32,12 +32,22 @@ class SinglyLinkedList:
         print(currentNode.data)
         print('👉👉',self.length)
         
-
+    def prepend(self, data):
+        newNode = Node(data)
+        if self.head == None:
+            self.head = newNode
+            self.tail = self.head
+        else:
+            newNode.next = self.head
+            self.head = newNode
+        self.length += 1
+    
+ 
 
 sll = SinglyLinkedList()
 sll.append(12)
 sll.append(1)
 sll.append(21)
 sll.prepend('first')
-sll.insert(2, 'checker')
+sll.insert_at_index(2, 'checker')
 sll.print_list()
