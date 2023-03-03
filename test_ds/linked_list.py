@@ -20,7 +20,18 @@ class SinglyLinkedList:
             self.tail = newNode
         self.length+=1
 
-
+    def print_list(self):
+        currentNode = self.head
+        if currentNode == None:
+            print("List is empty")
+            return
+        print('👇👇👇👇👇', end='\n')
+        while currentNode.next != None:
+            print(currentNode.data, end= ', ')
+            currentNode = currentNode.next
+        print(currentNode.data)
+        print('👉👉',self.length)
+        
 
 
 sll = SinglyLinkedList()
