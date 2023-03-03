@@ -42,7 +42,21 @@ class SinglyLinkedList:
             self.head = newNode
         self.length += 1
     
- 
+    def insert_at_index(self, index, data):
+        currentNode = self.head
+        if index > self.length - 1:
+            raise IndexError('Index out of range.')
+        if currentNode == None:
+            print('List is empty')
+            return
+        newNode = Node(data)
+        position = 0
+        while position < index - 1:
+            currentNode = currentNode.next
+            position+=1
+        newNode.next = currentNode.next
+        currentNode.next = newNode
+
 
 sll = SinglyLinkedList()
 sll.append(12)
