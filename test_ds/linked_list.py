@@ -56,7 +56,34 @@ class SinglyLinkedList:
             position+=1
         newNode.next = currentNode.next
         currentNode.next = newNode
+        self.length += 1
+    
+    def remove_at_index(self, index):
+        currentNode = self.head
+        if index > self.length - 1:
+            raise IndexError('Index out of range.')
+        if currentNode == None:
+            print('List is empty')
+            return
+        position = 0
+        while position < index - 1:
+            currentNode = currentNode.next
+            position+=1
+        deadNode = currentNode.next
+        currentNode.next = currentNode.next.next # or deadNode.next
+        del deadNode
+        self.length -= 1
 
+    def lookup(self, data):
+        findingNode = Node(data)
+        currentNode = self.head
+        if currentNode == None:
+            print("List is empty")
+            return
+        while currentNode.next != None:
+            if currentNode.data == findingNode.data:
+                print('😁',currentNode.data)
+            currentNode = currentNode.next
 
 sll = SinglyLinkedList()
 sll.append(12)
@@ -64,4 +91,6 @@ sll.append(1)
 sll.append(21)
 sll.prepend('first')
 sll.insert_at_index(2, 'checker')
+sll.remove_at_index(3)
+sll.lookup('first')
 sll.print_list()
