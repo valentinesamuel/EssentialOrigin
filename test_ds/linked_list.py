@@ -85,6 +85,19 @@ class SinglyLinkedList:
                 print('😁',currentNode.data)
             currentNode = currentNode.next
 
+    def reverse(self):
+        previous = None
+        current = self.head
+        following = self.head
+
+        while current != None:
+            following = following.next
+            current.next = previous
+            previous = current
+            current = following
+        
+        self.head = previous
+
 sll = SinglyLinkedList()
 sll.append(12)
 sll.append(1)
@@ -92,5 +105,6 @@ sll.append(21)
 sll.prepend('first')
 sll.insert_at_index(2, 'checker')
 sll.remove_at_index(3)
-sll.lookup('first')
+sll.print_list()
+sll.reverse()
 sll.print_list()
