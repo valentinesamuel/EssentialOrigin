@@ -1,10 +1,11 @@
 class Node:
-    def __init__(self, data, next=None):
+    def __init__(self, data, next=None, prev=None):
         self.data = data
         self.next = next
+        self.prev = prev
      
 
-class SinglyLinkedList:
+class DoublyLinkedList:
     def __init__(self):
         self.head = None
         self.tail = self.head
@@ -16,6 +17,7 @@ class SinglyLinkedList:
             self.head = newNode
             self.tail = self.head
         else:
+            newNode.prev = self.tail
             self.tail.next = newNode
             self.tail = newNode
         self.length+=1
@@ -39,6 +41,7 @@ class SinglyLinkedList:
             self.tail = self.head
         else:
             newNode.next = self.head
+            self.head.prev = newNode
             self.head = newNode
         self.length += 1
     
@@ -55,6 +58,7 @@ class SinglyLinkedList:
             currentNode = currentNode.next
             position+=1
         newNode.next = currentNode.next
+        newNode.prev = currentNode
         currentNode.next = newNode
         self.length += 1
     
@@ -71,6 +75,7 @@ class SinglyLinkedList:
             position+=1
         deadNode = currentNode.next
         currentNode.next = currentNode.next.next # or deadNode.next
+        currentNode.next.prev = currentNode # or deadNode.next
         del deadNode
         self.length -= 1
 
@@ -89,22 +94,20 @@ class SinglyLinkedList:
         previous = None
         current = self.head
         following = self.head
-
         while current != None:
             following = following.next
             current.next = previous
             previous = current
             current = following
-        
         self.head = previous
-
-sll = SinglyLinkedList()
-sll.append(12)
-sll.append(1)
-sll.append(21)
-sll.prepend('first')
-sll.insert_at_index(2, 'checker')
-sll.remove_at_index(3)
-sll.print_list()
-sll.reverse()
-sll.print_list()
+        
+dll = DoublyLinkedList()
+dll.append(12)
+dll.append(1)
+dll.append(21)
+dll.prepend('first')
+dll.insert_at_index(2, 'checker')
+dll.remove_at_index(3)
+dll.print_list()
+dll.reverse()
+dll.print_list()
