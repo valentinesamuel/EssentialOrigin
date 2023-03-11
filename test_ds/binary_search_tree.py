@@ -66,23 +66,30 @@ class BinarySearchTree():
                     badNode = currentNode.right
                     badNodeParent = currentNode.right
                     while badNode.left != None:
+                        # Fetch the leftmost node of the right subtree of the current node
                         badNodeParent = badNode
                         badNode = badNode.left
                     currentNode.value = badNode.value
+                    # Copy the values from the found node to the current node
                     if badNode == badNodeParent:
+                        # if the badnode is the rightmost child of the currentnode,link the currentnode to the right node of the bad node
                         currentNode.right = badNode.right
                     if badNode.right == None:
+                        # if the leftmost node of the right subtree of the currentnode has no right subtree. N/B that this left most node is a leaf node
                         badNodeParent.left = None
                         return
                     else:
+                        # if the leftmost node of the right subtree of the currentnode has a  right subtree. N/B that this left most node has no left children but only a right subtree (child/children)
                         badNodeParent.left = badNode.right
                         return
                 
                 # No left or right children
                 elif currentNode.left == None and currentNode.right == None:
                     if parentNode == None:
+                        # if we didn't move from tne root Node  
                         self.root = None
                         return
+                    # Since the currentnode is a leaf node with no child, both sides will be empty
                     if parentNode.value > currentNode.value:
                         parentNode.left = None
                         return
@@ -92,13 +99,16 @@ class BinarySearchTree():
 
                 # Only left child
                 elif currentNode.left != None and currentNode.right == None:
+                    # if we didn't move from tne root Node  
                     if parentNode == None:
                         self.root = None
                         return
                     if parentNode.value > currentNode.value:
+                        # link the parent node to the node after the currentnode to keep everything in order
                         parentNode.left = currentNode.left
                         return
                     else:
+                        # since the currentnode is bigger than the parent node, the left node after the current node will be bigger than the parent node so it has to be on the right of the parent node so that the right node after the current node will be correct in its position by remaining on the right of the new currentnode
                         parentNode.right = currentNode.left
                         return
 
