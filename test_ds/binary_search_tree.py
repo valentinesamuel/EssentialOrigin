@@ -116,6 +116,7 @@ class BinarySearchTree():
                 elif currentNode.left == None and currentNode.right != None:
                     if parentNode == None:
                         self.root = None
+                        return
                     if parentNode.value > currentNode.value:
                         parentNode.left = currentNode.right
                         return
