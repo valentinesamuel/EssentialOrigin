@@ -15,9 +15,7 @@ def selectionSort1(arr):
     # Update position of minimum element if a smaller element is found.
                 min = j
     # Swap the minimum element with the first element of the unsorted part
-        temp = arr[i]
-        arr[i] = arr[min]
-        arr[min] = temp
+        arr[i],arr[min] = arr[min],arr[i]
     return arr
 
 print(selectionSort1([99,44,6,2,1,5,63,87,283,4,0]))
