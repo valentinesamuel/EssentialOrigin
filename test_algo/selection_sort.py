@@ -6,6 +6,15 @@ def selectionSort(arr):
     return arr
 
 def selectionSort1(arr):
+    for idx in range(len(arr)):
+        min = idx
+        for idx1 in range(idx+1,len(arr)):
+            if arr[idx1] < arr[min]:
+                min = idx1
+        arr[idx], arr[min] = arr[min],  arr[idx]
+    return arr
+
+def selectionSort2(arr):
     length = len(arr)
     for i in range(length):
     # Initially, assume the first element of the unsorted part as the minimum.
