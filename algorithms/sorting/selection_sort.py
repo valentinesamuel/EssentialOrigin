@@ -1,7 +1,7 @@
-def selectionSort(arr, arr2):
+def selectionSort(arr):
 	for current_element in range(len(arr)):
 		current_minimum = current_element
-		for smallest in range(current_element + 1, len(arr2)):
+		for smallest in range(current_element + 1, len(arr)):
 			if arr[current_minimum] > arr[smallest]:
 				current_minimum = smallest
 		arr[current_element], arr[current_minimum] = arr[current_minimum], arr[
