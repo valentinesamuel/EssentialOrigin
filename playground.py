@@ -23,7 +23,6 @@ def insertionSort(arr):
             currmin -=1
     return arr
 
-
 def selectionSort(arr):
     for idx1 in range(len(arr)):
         min = idx1
@@ -32,35 +31,6 @@ def selectionSort(arr):
                 min = idx2
         arr[idx1], arr[min] = arr[min], arr[idx1]
     return arr
-
-def mergeSort(arr):
-    if len(arr) <= 1:
-        return arr
-
-    mid = len(arr) // 2
-
-    left = mergeSort(arr[:mid])
-    right = mergeSort(arr[mid:])
-
-    return merge(left, right)
-    
-def merge(left, right):
-
-    result = []
-    i, j = 0, 0
-
-    while i < len(left) and j < len(right):
-        if left[i] < right[j]:
-            result.append(left[i])
-            i += 1
-        else:
-            result.append(right[j])
-            j += 1
-
-    result += left[i:]
-    result += right[j:]
-        
-    return result
 
 
 print(insertionSort([99,44,6,2,1,5,63,87,283,4,0]))
