@@ -14,18 +14,5 @@ def selectionSort1(arr):
         arr[idx], arr[min] = arr[min],  arr[idx]
     return arr
 
-def selectionSort2(arr):
-    length = len(arr)
-    for i in range(length):
-    # Initially, assume the first element of the unsorted part as the minimum.
-        min = i
-        for j in range(i+1, length):
-            if arr[j] < arr[min]:
-    # Update position of minimum element if a smaller element is found.
-                min = j
-    # Swap the minimum element with the first element of the unsorted part
-        arr[i],arr[min] = arr[min],arr[i]
-    return arr
-
-print(selectionSort1([99,44,6,2,1,5,63,87,283,4,0]))
-print(selectionSort1([13, 4, 9, 5, 3, 16, 12]))
+print(selectionSort([99,44,6,2,1,5,63,87,283,4,0, 3]))
+print(selectionSort([13, 4, 9, 5, 3, 16, 12, 2]))
