@@ -8,8 +8,23 @@ def selectionSort(arr):
     return arr
         
 
+def insertionSort(arr):
+    for idx1 in range(1, len(arr)):
+        current = idx1
+        while current > 0 and arr[current - 1] > arr[current]:
+            arr[current], arr[current-1] = arr[current-1], arr[current]
+            current = current - 1
+    return arr
 
-
+def insertionSort2(arr):
+    for idx in range(1, len(arr)):
+        temp = arr[idx]    
+        idx2 = idx-1
+        while (idx2 >= 0 and  arr[idx2] > temp):
+            arr[idx2+1] = arr[idx2]
+            idx2-=1
+        arr[idx2+1] = temp
+    return arr
 
 def bubbleSort(arr):
     for idx1 in range(len(arr)):
@@ -20,5 +35,5 @@ def bubbleSort(arr):
 
     
 
-print(selectionSort([99,44,6,2,1,5,63,87,283,4,0]))
-print(selectionSort([13, 4, 9, 5, 3, 16, 12]))
+print(insertionSort([99,44,6,2,1,5,63,87,283,4,0]))
+print(insertionSort([13, 4, 9, 5, 3, 16, 12]))
