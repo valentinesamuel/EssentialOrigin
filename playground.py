@@ -50,4 +50,4 @@ def merge(left, right):
     return result
 
 print(mergeSort([99,44,6,2,1,5,63,87,283,4,0]))
-print(mergeSort([13, 4, 9, 5, 3, 16, 12]))
+print(bubbleSort([13, 4, 9, 5, 3, 16, 12]))
