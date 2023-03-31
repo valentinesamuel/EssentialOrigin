@@ -1,25 +1,25 @@
 def insertionSort(arr):
-    for idx in range(1, len(arr)):
-        curr_min = idx
-        while curr_min > 0 and arr[curr_min - 1] > arr[curr_min]:
-            arr[curr_min], arr[curr_min - 1] = arr[curr_min - 1], arr[curr_min]
-            curr_min -= 1
-    return arr
-
-def bubbleSort(arr):
-    for idx1 in range(len(arr)):
-        for idx2 in range(len(arr) - idx1 - 1):
-            if arr[idx2] > arr[idx2+1]:
-                arr[idx2], arr[idx2 + 1] = arr[idx2 + 1], arr[idx2]
+    for idx1 in range(1, len(arr)):
+        traverser = idx1
+        while traverser > 0 and arr[traverser - 1] > arr[traverser]:
+            arr[traverser], arr[traverser - 1] = arr[traverser - 1], arr[traverser]
+            traverser -= 1
     return arr
 
 def selectionSort(arr):
     for idx1 in range(len(arr)):
-        current_min = idx1
+        curr_min = idx1
         for idx2 in range(idx1+1, len(arr)):
-            if arr[idx2] < arr[current_min]:
-                current_min = idx2
-        arr[idx1], arr[current_min] = arr[current_min], arr[idx1]
+            if arr[idx2] < arr[curr_min]:
+                curr_min = idx2
+        arr[curr_min], arr[idx1] = arr[idx1], arr[curr_min]
+    return arr
+
+def bubbleSort(arr):
+    for idx1 in range(len(arr)):
+        for idx2 in range(len(arr)-idx1-1):
+            if arr[idx2] > arr[idx2+1]:
+                arr[idx2], arr[idx2+1] = arr[idx2+1], arr[idx2]
     return arr
 
 def mergeSort(arr):
@@ -34,16 +34,16 @@ def mergeSort(arr):
 
 def merge(left, right):
     result = []
-    i,j = 0, 0
-
-    while i < len(left) and j < len(right):
-        if left[i] < right[j]:
-            result.append(left[i])
-            i += 1
-        else:
-            result.append(right[j])
-            j += 1
+    i, j = 0, 0
     
+    while i < len(left) and j < len(right):
+        if left[i] > right[j]:
+            result.append(left[i])
+            i+=1
+        else: 
+            result.append(right[j])
+            j+=1
+
     result+=left[i:]
     result+=right[j:]
 
