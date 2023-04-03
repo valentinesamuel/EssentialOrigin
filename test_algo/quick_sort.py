@@ -8,15 +8,15 @@ def quickSort(arr, left, right):
 
 def partition(arr, left, right):
     pivot = arr[right]
-    partion_at = left
+    partition_at = left
 
     for j in range(left, right):
         if arr[j] < pivot:
-            arr[partion_at], arr[j] = arr[j], arr[partion_at]
-            partion_at += 1
+            arr[partition_at], arr[j] = arr[j], arr[partition_at]
+            partition_at += 1
     
-    arr[partion_at], arr[right] = arr[right], arr[partion_at]
-    return partion_at
+    arr[partition_at], arr[right] = arr[right], arr[partition_at]
+    return partition_at
 
 
 
