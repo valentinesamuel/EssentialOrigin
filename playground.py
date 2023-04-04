@@ -147,26 +147,64 @@ class BinarySearchTree():
         if not len(queue):
             return result
         
-        current_node = queue.pop(0) # queue.popleft()
-        result.append(current_node.value)
-        if current_node.left:
-            queue.append(current_node.left)
-        if current_node.right:
-            queue.append(current_node.right)
+        curr_node = queue.pop(0)
+        result.append(curr_node.value)
+        if curr_node.left:
+            queue.append(curr_node.left)
+        if curr_node.right:
+            queue.append(curr_node.right)
         
-        return self.breadthFirstSearchRecursive(queue, result)
+        return self.breadthFirstSearchRecursive(queue,result)
+
+    def depthFirstSearchInOrder(self):
+        return traverseInOrder(self.root, [])
+
+    def depthFirstSearchPreOrder(self):
+        return traversePreOrder(self.root, [])
+
+    def depthFirstSearchPostOrder(self):
+        return traversePostOrder(self.root, [])
+
+
+def traverseInOrder(node,result):
+    if node.left:
+        traverseInOrder(node.left, result)
+    result.append(node.value)
+    if node.right:
+        traverseInOrder(node.right, result)
+    return result
+
+def traversePreOrder(node,result):
+    result.append(node.value)
+    if node.left:
+        traversePreOrder(node.left, result)
+    if node.right:
+        traversePreOrder(node.right, result)
+    return result
+
+def traversePostOrder(node,result):
+    if node.left:
+        traversePostOrder(node.left, result)
+    if node.right:
+        traversePostOrder(node.right, result)
+    result.append(node.value)
+    return result
 
 
 bst = BinarySearchTree()
-bst.insert(5)
-bst.insert(3)
-bst.insert(7)
+bst.insert(9)
+bst.insert(4)
+bst.insert(6)
+bst.insert(20)
+bst.insert(170)
+bst.insert(15)
 bst.insert(1)
-bst.insert(13)
-bst.insert(65)
-bst.insert(0)
-bst.insert(10)
+# bst.insert(10)
 # print(bst)
 # print(bst.breadthFirstSearch())
-print(bst.breadthFirstSearchRecursive([bst.root],[]))
+# print(bst.breadthFirstSearchRecursive([bst.root],[]))
+print(bst.depthFirstSearchInOrder())
+# print(bst.depthFirstSearchPreOrder())
+# print(bst.depthFirstSearchPostOrder())
+
 
