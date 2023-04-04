@@ -157,12 +157,6 @@ class BinarySearchTree():
         return self.breadthFirstSearchRecursive(queue, result)
 
 
-
-def shift(arr):
-    if len(arr) <= 1:
-        return arr
-    return arr[1:]
-
 bst = BinarySearchTree()
 bst.insert(5)
 bst.insert(3)
