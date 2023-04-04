@@ -26,3 +26,5 @@ def post_order(node, result):
         post_order(node.right, result)
     result.append(node.value)
     return result
+
+# print(depthFirstSearch(self.root, []))

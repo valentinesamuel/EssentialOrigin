@@ -1,3 +1,4 @@
+# from collections import deque
 def breadthFirstSearchRecursive(queue, result):
     if not len(queue):
         return result
@@ -14,13 +15,13 @@ def breadthFirstSearchRecursive(queue, result):
 
 def breadFirstSearchIterative(rootNode):
     current_node = rootNode
-    queue = []
+    queue = [] # queue = deque()
     result = []
 
     queue.append(current_node)
 
     while queue > 0:
-        current_node = queue.pop(0)
+        current_node = queue.pop(0) # queue.popleft()
         result.append(current_node.value)
         if current_node.left:
             queue.append(current_node.left)
