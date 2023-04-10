@@ -8,7 +8,7 @@ def binary_search(arr, target):
 	last = len(arr) - 1
 
 	while (first <= last):
-		middle = first + (last - first) // 2
+		middle = (first + last) // 2
 		if (arr[middle] == target):
 			return middle
 		elif(arr[middle] < target):
